@@ -37,7 +37,7 @@ export default function Footer(props) {
                 className={classes.block}
                 target="_blank"
               >
-                Creative Tim
+                Curtis de Castro
               </a>
             </ListItem>
             <ListItem className={classes.inlineBlock}>
@@ -46,7 +46,7 @@ export default function Footer(props) {
                 className={classes.block}
                 target="_blank"
               >
-                About us
+                Biography
               </a>
             </ListItem>
             <ListItem className={classes.inlineBlock}>
@@ -55,7 +55,7 @@ export default function Footer(props) {
                 className={classes.block}
                 target="_blank"
               >
-                Blog
+                Projects
               </a>
             </ListItem>
             <ListItem className={classes.inlineBlock}>
@@ -64,22 +64,20 @@ export default function Footer(props) {
                 className={classes.block}
                 target="_blank"
               >
-                Licenses
+                Media
               </a>
             </ListItem>
           </List>
         </div>
         <div className={classes.right}>
-          &copy; {1900 + new Date().getYear()} , made with{" "}
-          <Favorite className={classes.icon} /> by{" "}
+          &copy; {1900 + new Date().getYear()} , made by{" "}
           <a
             href="https://www.creative-tim.com?ref=mkr-footer"
             className={aClasses}
             target="_blank"
           >
-            Creative Tim
-          </a>{" "}
-          for a better web.
+            Curtis de Castro
+          </a>
         </div>
       </div>
     </footer>

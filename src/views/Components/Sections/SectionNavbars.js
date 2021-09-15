@@ -23,6 +23,7 @@ import profileImage from "assets/img/faces/avatar.jpg";
 
 import styles from "assets/jss/material-kit-react/views/componentsSections/navbarsStyle.js";
 
+
 const useStyles = makeStyles(styles);
 
 export default function SectionNavbars() {

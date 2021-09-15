@@ -7,6 +7,7 @@ import "assets/scss/material-kit-react.scss?v=1.10.0";
 
 // pages for this product
 import Components from "views/Components/Components.js";
+import CValid from "views/Components/CValid.js";
 import ContentBody from "views/Components/ContentBody.js";
 import LandingPage from "views/LandingPage/LandingPage.js";
 import ProfilePage from "views/ProfilePage/ProfilePage.js";
@@ -21,6 +22,9 @@ ReactDOM.render(
       <Route path="/profile-page" component={ProfilePage} />
       <Route path="/login-page" component={LoginPage} />
       <Route path="/components" component={Components} />
+      <Route path="/cvalid" component={CValid} />
+
+
       <Route path="/" component={ContentBody} />
     </Switch>
   </Router>,

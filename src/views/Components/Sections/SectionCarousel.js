@@ -29,7 +29,6 @@ export default function SectionCarousel() {
     autoplay: false,
   };
   return (
-    <div className={classes.section}>
       <div className={classes.container}>
         <GridContainer>
           <GridItem xs={12} sm={12} md={8} className={classes.marginAuto}>
@@ -71,6 +70,5 @@ export default function SectionCarousel() {
           </GridItem>
         </GridContainer>
       </div>
-    </div>
   );
 }

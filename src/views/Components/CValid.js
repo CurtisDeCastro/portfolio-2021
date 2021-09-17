@@ -56,6 +56,10 @@ const CenteredContent = styled.div`
   justify-content: center;
 `;
 
+const Spacer = styled.div`
+  height: 20px;
+`;
+
 const UnderHeaderSpacer = styled.div`
   height: 70px;
   border: 3px dotted red;
@@ -135,9 +139,7 @@ export default function Components(props) {
           <GridContainer>
 
             <GridItem xs={12} sm={12} md={7}>
-              <h3>
-                <small>Exterior Camera</small>
-              </h3>
+              <Spacer/>
               <GridContainer>
 
                 <GridItem xs={12}>
@@ -169,7 +171,7 @@ export default function Components(props) {
             </GridItem>
 
             <GridItem xs={12} sm={12} md={5}>
-                  <SectionPills/>
+              <SectionPills/>
             </GridItem>
 
           </GridContainer>

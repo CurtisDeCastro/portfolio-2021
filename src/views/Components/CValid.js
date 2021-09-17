@@ -27,14 +27,17 @@ import Speed from "@material-ui/icons/Speed";
 import LocalOffer from "@material-ui/icons/LocalOffer";
 import Subscriptions from "@material-ui/icons/Subscriptions";
 import Camera from "@material-ui/icons/Camera";
+import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 
-import SectionCarousel from "views/Components/Sections/SectionCarousel.js"
+
 
 
 // sections for this page
 import CurtisHeaderLinks from "components/Header/CurtisHeaderLinks.js";
 import CanvasJSReact from "/Users/curtiscastro/work/Projects/portfolio-2021/src/components/canvasjs-3.4.1/canvasjs.react.js"
 import LineChart from "/Users/curtiscastro/work/Projects/portfolio-2021/src/components/LineChart/LineChart.js";
+import SectionCarousel from "views/Components/Sections/SectionCarousel.js";
+import SectionPills from "views/Components/Sections/SectionPills.js"
 
 var CanvasJS = CanvasJSReact.CanvasJS;
 var CanvasJSChart = CanvasJSReact.CanvasJSChart;
@@ -46,9 +49,11 @@ import styled from "styled-components";
 
 const useStyles = makeStyles(styles);
 
-const ContentBox = styled.div`
-  height: 3500px;
-  background: pink;
+const CenteredContent = styled.div`
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
 const UnderHeaderSpacer = styled.div`
@@ -56,12 +61,54 @@ const UnderHeaderSpacer = styled.div`
   border: 3px dotted red;
 `;
 
-const YoutubeVideo = styled.iframe`
-  margin: 15px auto;
+const ExtCam = styled.iframe`
+  margin: 0px auto;
+  width: 100%;
+  aspect-ratio: 16 / 9;
 `;
 
 const IntCam = styled.iframe`
-  margin: 0 auto;
+  width: 70%;
+  aspect-ratio: 16 / 9;
+`;
+
+const MainVideoDisplay = styled.div`
+  color: grey;
+  background: white;
+  border-radius: 5px;
+  width: 100%;
+  margin: 0;
+  padding: 15px;
+  box-shadow: 1px 2px 1px grey;
+  // max-height: 80px;
+`;
+
+const TitleText = styled.h3`
+  margin: 0;
+  font-size: .8em;
+  line-height: 1em;
+  padding-bottom: 4px;
+`;
+
+const TitleMetaData = styled.p`
+  margin: 0;
+  font-size: .6em;
+  line-height: 1em;
+`;
+
+const ActionItemBoxStatic = styled.div`
+  background: white;
+  border-radius: 5px;
+  min-height: 100px;
+  width: 100%;
+  margin: 0;
+`;
+
+const ActionItemBoxVariable = styled.div`
+  background: white;
+  border-radius: 5px;
+  min-height: 100px;
+  y-overflow: autoscroll;
 `;
 
 export default function Components(props) {
@@ -74,85 +121,57 @@ export default function Components(props) {
         brand="Curtis de Castro"
         rightLinks={<CurtisHeaderLinks />}
         fixed
-        color="danger"
+        color="dark"
         changeColorOnScroll={{
           height: 400,
           color: "transparent",
         }}
         {...rest}
       />
-
       <UnderHeaderSpacer />
 
       <div className={classes.container}>
 
           <GridContainer>
-            <GridItem xs={12} sm={12} md={6}>
-              {/* <div className={classNames(classes.container)}> */}
-                <YoutubeVideo
-                  width="560"
-                  height="315"
-                  src="https://www.youtube.com/embed/yNr1lnrxDro"
-                  title="YouTube video player"
-                  frameborder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowfullscreen>
-                </YoutubeVideo>
-              {/* </div> */}
-            </GridItem>
-            <GridItem xs={12} sm={12} md={6}>
+
+            <GridItem xs={12} sm={12} md={7}>
               <h3>
-                <small>Event Data</small>
+                <small>Exterior Camera</small>
               </h3>
-              <CustomTabs
-                headerColor="danger"
-                tabs={[
-                  {
-                    tabName: "Int. Cam",
-                    tabIcon: Camera,
-                    tabContent: (
-                      <YoutubeVideo
-                        width="100%"
-                        height="315"
-                        src="https://www.youtube.com/embed/cCu2_6WKeUQ"
-                        title="YouTube video player"
-                        frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen
-                      >
-                      </YoutubeVideo>
-                    ),
-                  },
-                  {
-                    tabName: "Location",
-                    tabIcon: LocationOn,
-                    tabContent: (
-                      <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3144.1074166339654!2d-122.53060660000001!3d37.99795490000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808599d13914ca07%3A0x160ed297b5691974!2sCounty%20of%20Marin!5e0!3m2!1sen!2sus!4v1631684737994!5m2!1sen!2sus"
-                        width="100%"
-                        height="250px"
-                        allowfullscreen=""
-                        loading="lazy"
-                      ></iframe>
-                    ),
-                  },
-                  {
-                    tabName: "Speed",
-                    tabIcon: Speed,
-                    tabContent: (
-                      <LineChart />
-                    ),
-                  },
-                  {
-                    tabName: "Queue",
-                    tabIcon: Subscriptions,
-                    tabContent: (
-                      <SectionCarousel />
-                    ),
-                  },
-                ]}
-              />
+              <GridContainer>
+
+                <GridItem xs={12}>
+                  <MainVideoDisplay>
+                    <TitleText>
+                      <strong>VIDEO TITLE</strong>
+                    </TitleText>
+                    <ExtCam
+                    width="560"
+                    height="315"
+                    src="https://www.youtube.com/embed/yNr1lnrxDro"
+                    title="YouTube video player"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen
+                  >
+                  </ExtCam>
+                  <TitleMetaData>
+                      Driver:<br></br>
+                      Vehicle ID:<br></br>
+                      Incident Date/Time:<br></br>
+                      Auto-Tags:
+                  </TitleMetaData>
+                  </MainVideoDisplay>
+                </GridItem>
+
+              </GridContainer>
+
             </GridItem>
+
+            <GridItem xs={12} sm={12} md={5}>
+                  <SectionPills/>
+            </GridItem>
+
           </GridContainer>
             <h3>
               <small>Action Items</small>
@@ -164,46 +183,19 @@ export default function Components(props) {
                 {
                   tabName: "Tags",
                   tabContent: (
-                    <p className={classes.textCenter}>
-                      I think that’s a responsibility that I have, to push
-                      possibilities, to show people, this is the level that
-                      things could be at. So when you get something that has
-                      the name Kanye West on it, it’s supposed to be pushing
-                      the furthest possibilities. I will be the leader of a
-                      company that ends up being worth billions of dollars,
-                      because I got the answers. I understand culture. I am
-                      the nucleus.
-                    </p>
+                    <ActionItemBoxStatic/>
                   ),
                 },
                 {
                   tabName: "Comments",
                   tabContent: (
-                    <p className={classes.textCenter}>
-                      I think that’s a responsibility that I have, to push
-                      possibilities, to show people, this is the level that
-                      things could be at. I will be the leader of a company
-                      that ends up being worth billions of dollars, because I
-                      got the answers. I understand culture. I am the nucleus.
-                      I think that’s a responsibility that I have, to push
-                      possibilities, to show people, this is the level that
-                      things could be at.
-                    </p>
+                    <ActionItemBoxVariable/>
                   ),
                 },
                 {
                   tabName: "Status",
                   tabContent: (
-                    <p className={classes.textCenter}>
-                      think that’s a responsibility that I have, to push
-                      possibilities, to show people, this is the level that
-                      things could be at. So when you get something that has
-                      the name Kanye West on it, it’s supposed to be pushing
-                      the furthest possibilities. I will be the leader of a
-                      company that ends up being worth billions of dollars,
-                      because I got the answers. I understand culture. I am
-                      the nucleus.
-                    </p>
+                    <ActionItemBoxStatic/>
                   ),
                 },
               ]}

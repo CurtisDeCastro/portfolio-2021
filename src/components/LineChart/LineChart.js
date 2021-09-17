@@ -2,16 +2,14 @@ import React from 'react';
 
 import CanvasJSReact from "/Users/curtiscastro/work/Projects/portfolio-2021/src/components/canvasjs-3.4.1/canvasjs.react.js";
 
-var CanvasJS = CanvasJSReact.CanvasJS;
-var CanvasJSChart = CanvasJSReact.CanvasJSChart;
-
-
+const CanvasJS = CanvasJSReact.CanvasJS;
+const CanvasJSChart = CanvasJSReact.CanvasJSChart;
 
  class LineChart extends React.Component {
    render() {
      const options = {
        animationEnabled: true,
-       exportEnabled: true,
+       exportEnabled: false,
        theme: "light2", // "light1", "dark1", "dark2"
        title:{
          text: "Accelerometer Data"
@@ -22,12 +20,12 @@ var CanvasJSChart = CanvasJSReact.CanvasJSChart;
        },
        axisX: {
          title: "Time",
-         suffix: "s",
+         suffix: "",
          interval: 1
        },
        data: [{
          type: "line",
-         toolTipContent: "Week {x}: {y}%",
+         toolTipContent: "Elapsed Time {x}(s): {y} mph",
          dataPoints: [
            { x: 1, y: 64 },
            { x: 2, y: 61 },
@@ -53,16 +51,12 @@ var CanvasJSChart = CanvasJSReact.CanvasJSChart;
        }]
      }
      return (
-     <div>
-       <CanvasJSChart options = {options}
+       <CanvasJSChart options = {options} />
         //  onRef={ref => this.chart = ref}
-       />
-       {/*You can get reference to the chart instance as shown above using onRef. This allows you to access all chart properties and methods*/}
-     </div>
+       /*You can get reference to the chart instance as shown above using onRef. This allows you to access all chart properties and methods*/
      );
    }
  }
 
-// module.exports = LineChart;
 export default LineChart;
 

@@ -32,7 +32,7 @@ import styled from "styled-components";
 
 const useStyles = makeStyles(styles);
 
-export default function SectionPills() {
+export default function XSectionToolbar() {
   LineChart.containerProps = { width: "93%", display: "grid" };
   const classes = useStyles();
 
@@ -47,14 +47,14 @@ export default function SectionPills() {
           }}
           tabs={[
             {
-              tabButton: "Camera",
+              tabButton: "",
               tabIcon: Camera,
               tabContent: (
                 <ToolIntCam />
               ),
             },
             {
-              tabButton: "Location",
+              tabButton: "",
               tabIcon: LocationOn,
               tabContent: (
                 <ToolLocation />
@@ -62,15 +62,9 @@ export default function SectionPills() {
             },
             {
               tabButton: "",
-              tabIcon: LocationOn,
+              tabIcon: Speed,
               tabContent: (
-                <ChartistGraph
-                  className="ct-chart-white-colors"
-                  data={straightLinesChart.data}
-                  type="Line"
-                  options={straightLinesChart.options}
-                  listener={straightLinesChart.animation}
-                />
+                <ToolAccelerometer />
               ),
             },
             {

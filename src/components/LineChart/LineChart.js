@@ -12,7 +12,7 @@ const CanvasJSChart = CanvasJSReact.CanvasJSChart;
        exportEnabled: false,
        theme: "light2", // "light1", "dark1", "dark2"
        title:{
-         text: "Accelerometer Data"
+         text: ""
        },
        axisY: {
          title: "Speed",

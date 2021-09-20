@@ -41,7 +41,6 @@ import CanvasJSReact from "/Users/curtiscastro/work/Projects/portfolio-2021/src/
 import LineChart from "/Users/curtiscastro/work/Projects/portfolio-2021/src/components/LineChart/LineChart.js";
 import SectionCarousel from "views/Components/Sections/SectionCarousel.js";
 import XSectionToolbar from "views/Components/Sections/XSectionToolbar.js";
-import XSectionVideoPlayer from "views/Components/Sections/XSectionVideoPlayer.js";
 
 var CanvasJS = CanvasJSReact.CanvasJS;
 var CanvasJSChart = CanvasJSReact.CanvasJSChart;
@@ -53,30 +52,9 @@ import styled from "styled-components";
 
 const useStyles = makeStyles(styles);
 
-const CenteredContent = styled.div`
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`;
-
-const Spacer = styled.div`
-  height: 20px;
-`;
-
-const UnderHeaderSpacer = styled.div`
-  height: 70px;
-  border: 3px dotted red;
-`;
-
 const ExtCam = styled.iframe`
   margin: 0px auto;
   width: 100%;
-  aspect-ratio: 16 / 9;
-`;
-
-const IntCam = styled.iframe`
-  width: 70%;
   aspect-ratio: 16 / 9;
 `;
 
@@ -103,79 +81,33 @@ const TitleMetaData = styled.p`
   line-height: 1em;
 `;
 
-const ActionItemBoxStatic = styled.div`
-  background: white;
-  border-radius: 5px;
-  min-height: 100px;
-  width: 100%;
-  margin: 0;
-`;
-
-const ActionItemBoxVariable = styled.div`
-  background: white;
-  border-radius: 5px;
-  min-height: 100px;
-  y-overflow: autoscroll;
-`;
-
-export default function Components(props) {
+export default function XSectionVideoPlayer(props) {
   const classes = useStyles();
   const { ...rest } = props;
   return (
-    <div className={classes.section}>
-
-      <Header
-        brand="Curtis de Castro"
-        rightLinks={<CurtisHeaderLinks />}
-        fixed
-        color="danger"
-        changeColorOnScroll={{
-          height: 400,
-          color: "transparent",
-        }}
-        {...rest}
-      />
-      <UnderHeaderSpacer />
-
-      <div className={classes.container}>
-
-          <GridContainer>
-            <GridItem xs={12} sm={12} md={7}>
-              <Spacer/>
-              <XSectionVideoPlayer />
-            </GridItem>
-
-            <GridItem xs={12} sm={12} md={5}>
-              <XSectionToolbar/>
-            </GridItem>
-          </GridContainer>
-          <CustomTabs
-            plainTabs
-            headerColor="danger"
-            tabs={[
-              {
-                tabName: "Tags",
-                tabContent: (
-                  <ActionItemBoxStatic/>
-                ),
-              },
-              {
-                tabName: "Comments",
-                tabContent: (
-                  <ActionItemBoxVariable/>
-                ),
-              },
-              {
-                tabName: "Status",
-                tabContent: (
-                  <ActionItemBoxStatic/>
-                ),
-              },
-            ]}
-          />
-          <Footer />
-
-      </div>
-    </div>
+    <GridContainer>
+      <GridItem xs={12}>
+        <MainVideoDisplay>
+          <TitleText>
+            <strong>VIDEO TITLE</strong>
+          </TitleText>
+          <ExtCam
+            width="560"
+            height="315"
+            src="https://www.youtube.com/embed/yNr1lnrxDro"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></ExtCam>
+          <TitleMetaData>
+              Driver:<br></br>
+              Vehicle ID:<br></br>
+              Incident Date/Time:<br></br>
+              Auto-Tags:
+          </TitleMetaData>
+        </MainVideoDisplay>
+      </GridItem>
+    </GridContainer>
   );
 }

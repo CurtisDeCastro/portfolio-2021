@@ -19,6 +19,9 @@ import NavPills from "components/NavPills/NavPills.js";
 import LineChart from "/Users/curtiscastro/work/Projects/portfolio-2021/src/components/LineChart/LineChart.js";
 import SectionCarousel from "views/Components/Sections/SectionCarousel.js";
 
+import CardBody from "/Users/curtiscastro/work/Projects/portfolio-2021/src/components/Card/CardBody.js";
+import Card from "/Users/curtiscastro/work/Projects/portfolio-2021/src/components/Card/Card.js";
+
 
 import styles from "assets/jss/material-kit-react/views/componentsSections/pillsStyle.js";
 import styled from "styled-components";
@@ -27,6 +30,10 @@ const Location = styled.iframe`
   border: none;
   height: 93%;
   width: 93%;
+`;
+
+const ToolBarHeaderText = styled.h4`
+  margin: 0;
 `;
 
 const ToolBarHeader = styled.div`
@@ -58,22 +65,26 @@ export default function ToolLocation() {
   LineChart.containerProps = { width: "93%", display: "grid" };
   const classes = useStyles();
   return (
-    <GridContainer>
-      <GridItem xs={12}>
-        <ToolBarHeader>
-          INCIDENT LOCATION
-        </ToolBarHeader>
-      </GridItem>
-      <GridItem xs={12}>
-        <ToolBarContent>
-          <Location
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3144.1074166339654!2d-122.53060660000001!3d37.99795490000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808599d13914ca07%3A0x160ed297b5691974!2sCounty%20of%20Marin!5e0!3m2!1sen!2sus!4v1631684737994!5m2!1sen!2sus"
-            width="100%"
-            allowfullscreen=""
-            loading="lazy"
-          ></Location>
-        </ToolBarContent>
-      </GridItem>
-    </GridContainer>
+<GridContainer>
+  <GridItem xs={12}>
+    <ToolBarHeader>
+      <ToolBarHeaderText>
+        LOCATION
+      </ToolBarHeaderText>
+    </ToolBarHeader>
+  </GridItem>
+  <GridItem xs={12}>
+    <ToolBarContent>
+      <Location
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3144.1074166339654!2d-122.53060660000001!3d37.99795490000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808599d13914ca07%3A0x160ed297b5691974!2sCounty%20of%20Marin!5e0!3m2!1sen!2sus!4v1631684737994!5m2!1sen!2sus"
+        width="100%"
+        allowfullscreen=""
+        loading="lazy"
+      ></Location>
+    </ToolBarContent>
+  </GridItem>
+</GridContainer>
   );
 }
+
+

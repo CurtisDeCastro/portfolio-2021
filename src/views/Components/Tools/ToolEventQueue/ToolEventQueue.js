@@ -19,6 +19,9 @@ import NavPills from "components/NavPills/NavPills.js";
 import LineChart from "/Users/curtiscastro/work/Projects/portfolio-2021/src/components/LineChart/LineChart.js";
 import SectionCarousel from "views/Components/Sections/SectionCarousel.js";
 
+import Card from "/Users/curtiscastro/work/Projects/portfolio-2021/src/components/Card/Card.js";
+import CardBody from "/Users/curtiscastro/work/Projects/portfolio-2021/src/components/Card/CardBody.js";
+
 
 import styles from "assets/jss/material-kit-react/views/componentsSections/pillsStyle.js";
 import styled from "styled-components";
@@ -31,6 +34,10 @@ const ToolBarHeader = styled.div`
   width: 100%;
   color: white;
   text-align: center;
+`;
+
+const ToolBarHeaderText = styled.h4`
+  margin: 0;
 `;
 
 const ToolBarContent = styled.div`
@@ -53,17 +60,22 @@ export default function SectionPills() {
   const classes = useStyles();
 
   return (
-    <GridContainer>
-      <GridItem xs={12}>
-        <ToolBarHeader>
-          QUEUE
-        </ToolBarHeader>
-      </GridItem>
-      <GridItem xs={12}>
-        <ToolBarContent>
-          <SectionCarousel />
-        </ToolBarContent>
-      </GridItem>
-    </GridContainer>
+<GridContainer>
+  <GridItem xs={12}>
+    <ToolBarHeader>
+      <ToolBarHeaderText>
+        QUEUE
+      </ToolBarHeaderText>
+    </ToolBarHeader>
+  </GridItem>
+  <GridItem xs={12}>
+    <ToolBarContent>
+      <CardBody>
+        {/* <SectionCarousel /> */}
+      </CardBody>
+    </ToolBarContent>
+  </GridItem>
+</GridContainer>
   );
 }
+

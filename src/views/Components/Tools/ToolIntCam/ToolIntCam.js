@@ -19,6 +19,9 @@ import NavPills from "components/NavPills/NavPills.js";
 import LineChart from "/Users/curtiscastro/work/Projects/portfolio-2021/src/components/LineChart/LineChart.js";
 import SectionCarousel from "views/Components/Sections/SectionCarousel.js";
 
+import Card from "/Users/curtiscastro/work/Projects/portfolio-2021/src/components/Card/Card.js";
+import CardBody from "/Users/curtiscastro/work/Projects/portfolio-2021/src/components/Card/CardBody.js";
+
 
 import styles from "assets/jss/material-kit-react/views/componentsSections/pillsStyle.js";
 import styled from "styled-components";
@@ -37,6 +40,7 @@ const ToolBarHeader = styled.div`
   width: 100%;
   color: white;
   text-align: center;
+  margin: 0;
 `;
 
 const ToolBarContent = styled.div`
@@ -52,6 +56,10 @@ const ToolBarContent = styled.div`
   justify-content: center;
 `;
 
+const ToolBarHeaderText = styled.h4`
+  margin: 0;
+`;
+
 const useStyles = makeStyles(styles);
 
 export default function SectionPills() {
@@ -62,19 +70,22 @@ export default function SectionPills() {
     <GridContainer>
       <GridItem xs={12}>
         <ToolBarHeader>
-          INTERIOR CAMERA
+          <ToolBarHeaderText>
+            INTERIOR CAMERA
+          </ToolBarHeaderText>
         </ToolBarHeader>
       </GridItem>
       <GridItem xs={12}>
         <ToolBarContent>
+          <CardBody>
             <IntCam
               src="https://www.youtube.com/embed/cCu2_6WKeUQ"
               title="YouTube video player"
               frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowfullscreen
-            >
-            </IntCam>
+            ></IntCam>
+          </CardBody>
         </ToolBarContent>
       </GridItem>
     </GridContainer>

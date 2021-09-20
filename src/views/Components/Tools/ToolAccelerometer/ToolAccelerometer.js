@@ -53,6 +53,23 @@ const ToolBarHeader = styled.div`
   text-align: center;
 `;
 
+const ToolBarContent = styled.div`
+  color: grey;
+  // background: #555555;
+  background: white;
+  border-radius: 0 0 5px 5px;
+  box-shadow: 1px 2px 1px grey;
+  width: 100%;
+  height: 410px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+const ToolBarHeaderText = styled.h4`
+  margin: 0;
+`;
+
 const useStyles = makeStyles(styles);
 
 export default function ToolAccelerometer() {
@@ -67,7 +84,7 @@ export default function ToolAccelerometer() {
         </ToolBarHeader>
       </GridItem>
       <GridItem xs={12}>
-        <Card>
+        <ToolBarContent>
           <CardBody>
             <ChartistGraph
               data={colouredLinesChart.data}
@@ -76,7 +93,7 @@ export default function ToolAccelerometer() {
               listener={colouredLinesChart.animation}
             />
           </CardBody>
-        </Card>
+        </ToolBarContent>
       </GridItem>
     </GridContainer>
   );

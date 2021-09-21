@@ -3,14 +3,8 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 
 // @material-ui/icons
-import Dashboard from "@material-ui/icons/Dashboard";
-import Schedule from "@material-ui/icons/Schedule";
-import List from "@material-ui/icons/List";
-import Subscriptions from "@material-ui/icons/Subscriptions";
-import Camera from "@material-ui/icons/Camera";
-import Speed from "@material-ui/icons/Speed";
-import LocationOn from "@material-ui/icons/LocationOn";
-import EmojiPeople from "@material-ui/icons/EmojiPeople";
+import ArrowBackIos from "@material-ui/icons/ArrowBackIos";
+import ArrowForwardIos from "@material-ui/icons/ArrowForwardIos";
 
 // core components
 import GridContainer from "components/Grid/GridContainer.js";
@@ -18,6 +12,9 @@ import GridItem from "components/Grid/GridItem.js";
 import NavPills from "components/NavPills/NavPills.js";
 import LineChart from "/Users/curtiscastro/work/Projects/portfolio-2021/src/components/LineChart/LineChart.js";
 import SectionCarousel from "views/Components/Sections/SectionCarousel.js";
+
+import Button from "components/CustomButtons/Button.js";
+import CardTrending from "./CardTrending.js";
 
 import Card from "/Users/curtiscastro/work/Projects/portfolio-2021/src/components/Card/Card.js";
 import CardBody from "/Users/curtiscastro/work/Projects/portfolio-2021/src/components/Card/CardBody.js";
@@ -48,10 +45,44 @@ const ToolBarContent = styled.div`
   box-shadow: 1px 2px 1px grey;
   width: 100%;
   height: 410px;
+  padding: 10px;
+  // display: flex;
+  // align-items: center;
+  // justify-content: center;
+`;
+
+const Controller = styled.div`
+  // border: 2px solid red;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
+  margin: 0 auto;
 `;
+
+const ControllerText = styled.div`
+  margin: 0 auto;
+  display: flex;
+  height: 100%;
+  position-content: center;
+  justify-content: center;
+  align-text: center;
+  align-items: center;
+`;
+
+const QueueBox = styled.div`
+  border: 1px solid grey;
+  background: grey;
+  overflow-y: scroll;
+  max-height: 335px;
+  border-radius: 5px;
+  padding: 0;
+`;
+
+const QueueItem = styled.div`
+padding: 0;
+`;
+
 
 const useStyles = makeStyles(styles);
 
@@ -61,20 +92,59 @@ export default function SectionPills() {
 
   return (
 <GridContainer>
+
   <GridItem xs={12}>
     <ToolBarHeader>
+
       <ToolBarHeaderText>
         QUEUE
       </ToolBarHeaderText>
+
     </ToolBarHeader>
   </GridItem>
+
   <GridItem xs={12}>
     <ToolBarContent>
-      <CardBody>
-        {/* <SectionCarousel /> */}
-      </CardBody>
+
+      <GridContainer>
+
+        <GridItem xs={12}>
+          <Controller>
+            <GridContainer>
+              <GridItem xs={4}>
+                <Button href="#pablo" className={classes.button} color="transparent">
+                  <ArrowBackIos />
+                </Button>
+              </GridItem>
+              <GridItem xs={4}>
+                <ControllerText>
+                  1 / 15
+                </ControllerText>
+              </GridItem>
+              <GridItem  xs={4}>
+                <Button href="#pablo" className={classes.button} color="transparent">
+                  <ArrowForwardIos />
+                </Button>
+              </GridItem>
+            </GridContainer>
+          </Controller>
+        </GridItem>
+
+        <GridItem xs={12}>
+          <QueueBox>
+            <CardTrending/>
+            <CardTrending/>
+            <CardTrending/>
+            <CardTrending/>
+            <CardTrending/>
+          </QueueBox>
+        </GridItem>
+
+      </GridContainer>
+
     </ToolBarContent>
   </GridItem>
+
 </GridContainer>
   );
 }

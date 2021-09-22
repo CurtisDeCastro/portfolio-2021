@@ -1,35 +1,22 @@
-import React from "react";
-// @material-ui/core components
-import { makeStyles } from "@material-ui/core/styles";
+import React from 'react';
+import styled from 'styled-components';
 
 // @material-ui/icons
-import Dashboard from "@material-ui/icons/Dashboard";
-import Schedule from "@material-ui/icons/Schedule";
-import List from "@material-ui/icons/List";
-import Subscriptions from "@material-ui/icons/Subscriptions";
-import Camera from "@material-ui/icons/Camera";
-import Speed from "@material-ui/icons/Speed";
-import LocationOn from "@material-ui/icons/LocationOn";
-import EmojiPeople from "@material-ui/icons/EmojiPeople";
+import ErrorOutline from '@material-ui/icons/ErrorOutline';
+// @material-ui/core components
+import { makeStyles } from '@material-ui/styles';
+import styles from '../../../../assets/jss/material-kit-react/views/componentsSections/pillsStyle';
 
 // core components
-import GridContainer from "components/Grid/GridContainer.js";
-import GridItem from "components/Grid/GridItem.js";
-import NavPills from "components/NavPills/NavPills.js";
-import LineChart from "/Users/curtiscastro/work/Projects/portfolio-2021/src/components/LineChart/LineChart.js";
-import SectionCarousel from "views/Components/Sections/SectionCarousel.js";
-
-import Card from "/Users/curtiscastro/work/Projects/portfolio-2021/src/components/Card/Card.js";
-import CardBody from "/Users/curtiscastro/work/Projects/portfolio-2021/src/components/Card/CardBody.js";
-
-
-import styles from "assets/jss/material-kit-react/views/componentsSections/pillsStyle.js";
-import styled from "styled-components";
+import GridContainer from '../../../../components/Grid/GridContainer';
+import GridItem from '../../../../components/Grid/GridItem';
+import ToolIntCamCardBody from '../../../../components/Card/ToolIntCam/ToolIntCamCardBody';
 
 const IntCam = styled.iframe`
   aspect-ratio: 16 / 9;
   border: none;
   width: 100%;
+  border-bottom: 1px solid grey;
 `;
 
 const ToolBarHeader = styled.div`
@@ -44,50 +31,135 @@ const ToolBarHeader = styled.div`
 `;
 
 const ToolBarContent = styled.div`
-  color: grey;
-  // background: #555555;
+  // color: grey;
   background: white;
   border-radius: 0 0 5px 5px;
   box-shadow: 1px 2px 1px grey;
   width: 100%;
   height: 410px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  padding: 2.5%;
 `;
 
 const ToolBarHeaderText = styled.h4`
   margin: 0;
 `;
 
+const Warning = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 9fr;
+  text-align: left;
+  background: #f59c95;
+`;
+
+const WarningIcon = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: .2em;
+  color: #f44336;
+`;
+
+const WarningText = styled.div`
+  display: flex;
+  align-items: center;
+  text-align: left;
+`;
+
+const SubCompHeader = styled.div`
+  text-align: center;
+  color: #f44336;
+  border-bottom: 1px solid grey;
+`;
+
+const ViolationsWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px;
+  overflow-y: auto;
+  height: 80%;
+`;
+
+const ViolationsInnerWrapper = styled.div`
+  overflow-y: auto;
+`;
+
 const useStyles = makeStyles(styles);
 
-export default function SectionPills() {
-  LineChart.containerProps = { width: "93%", display: "grid" };
+export default function ToolIntCam() {
   const classes = useStyles();
 
   return (
     <GridContainer>
+
       <GridItem xs={12}>
         <ToolBarHeader>
           <ToolBarHeaderText>
-            INTERIOR CAMERA
+            COMPUTER VISION
           </ToolBarHeaderText>
         </ToolBarHeader>
       </GridItem>
+
       <GridItem xs={12}>
+
         <ToolBarContent>
-          <CardBody>
-            <IntCam
-              src="https://www.youtube.com/embed/cCu2_6WKeUQ"
-              title="YouTube video player"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen
-            ></IntCam>
-          </CardBody>
+
+          <GridContainer>
+
+            <GridItem xs={12}>
+              <SubCompHeader>Interior Camera</SubCompHeader>
+              <IntCam
+                src="https://www.youtube.com/embed/cCu2_6WKeUQ"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+              ></IntCam>
+            </GridItem>
+
+            <GridItem xs={12}>
+              <ViolationsWrapper>
+                <SubCompHeader>Safety Violations</SubCompHeader>
+                  <ViolationsInnerWrapper>
+                  <ToolIntCamCardBody>
+                    <Warning>
+                      <WarningIcon>
+                        <ErrorOutline />
+                      </WarningIcon>
+                      <WarningText>
+                        <p><strong>Warning:</strong> Poor Camera Installation Quality</p>
+                      </WarningText>
+                    </Warning>
+                  </ToolIntCamCardBody>
+                  <ToolIntCamCardBody>
+                    <Warning>
+                      <WarningIcon>
+                        <ErrorOutline />
+                      </WarningIcon>
+                      <WarningText>
+                        <p><strong>Warning:</strong> Distracted Driving Detected</p>
+                      </WarningText>
+                    </Warning>
+                  </ToolIntCamCardBody>
+                  <ToolIntCamCardBody>
+                    <Warning>
+                      <WarningIcon>
+                        <ErrorOutline />
+                      </WarningIcon>
+                      <WarningText>
+                        <p><strong>Warning:</strong> Drowsiness Detected</p>
+                      </WarningText>
+                    </Warning>
+                  </ToolIntCamCardBody>
+                </ViolationsInnerWrapper>
+              </ViolationsWrapper>
+            </GridItem>
+
+          </GridContainer>
+
         </ToolBarContent>
+
       </GridItem>
+
     </GridContainer>
   );
 }

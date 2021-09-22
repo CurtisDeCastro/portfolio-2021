@@ -20,6 +20,7 @@ import styles from '../../assets/jss/material-kit-react/views/components';
 // sections for this page
 import XSectionToolbar from './Sections/XSectionToolbar';
 import XSectionVideoPlayer from './Sections/XSectionVideoPlayer';
+import XSectionActions from './Sections/XSectionActions';
 import CurtisHeaderLinks from '../../components/Header/CurtisHeaderLinks';
 
 const useStyles = makeStyles(styles);
@@ -31,21 +32,6 @@ const Spacer = styled.div`
 const UnderHeaderSpacer = styled.div`
   height: 70px;
   border: 3px dotted red;
-`;
-
-const ActionItemBoxStatic = styled.div`
-  background: white;
-  border-radius: 5px;
-  min-height: 100px;
-  width: 100%;
-  margin: 0;
-`;
-
-const ActionItemBoxVariable = styled.div`
-  background: white;
-  border-radius: 5px;
-  min-height: 100px;
-  y-overflow: autoscroll;
 `;
 
 export default function Components(props) {
@@ -78,30 +64,7 @@ export default function Components(props) {
             <XSectionToolbar />
           </GridItem>
         </GridContainer>
-        <CustomTabs
-          plainTabs
-          headerColor="danger"
-          tabs={[
-            {
-              tabName: 'Tags',
-              tabContent: (
-                <ActionItemBoxStatic />
-              ),
-            },
-            {
-              tabName: 'Comments',
-              tabContent: (
-                <ActionItemBoxVariable />
-              ),
-            },
-            {
-              tabName: 'Status',
-              tabContent: (
-                <ActionItemBoxStatic />
-              ),
-            },
-          ]}
-        />
+        <XSectionActions />
         <Footer />
 
       </div>

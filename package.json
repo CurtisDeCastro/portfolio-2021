@@ -8,6 +8,7 @@
     "@babel/core": "7.14.0",
     "@material-ui/core": "4.11.4",
     "@material-ui/icons": "4.11.2",
+    "@material-ui/styles": "^4.11.4",
     "canvasjs": "^1.8.3",
     "chartist": "^0.11.4",
     "classnames": "2.3.1",

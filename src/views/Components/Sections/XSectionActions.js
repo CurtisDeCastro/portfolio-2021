@@ -1,6 +1,6 @@
 import React from 'react';
 // @material-ui/core components
-import { makeStyles } from '@material-ui/styles';
+import { makeStyles } from '@material-ui/core/styles';
 
 import styles from '../../../assets/jss/material-kit-react/views/componentsSections/pillsStyle';
 
@@ -15,7 +15,6 @@ import ActionAddComment from '../Actions/ActionComments/ActionAddComment';
 import ActionStatus from '../Actions/ActionStatus/ActionStatus';
 import ActionTags from '../Actions/ActionTags/ActionTags';
 
-
 const useStyles = makeStyles(styles);
 
 export default function XSectionToolbar() {
@@ -26,26 +25,26 @@ export default function XSectionToolbar() {
       headerColor="danger"
       tabs={[
         {
-          tabName: "Tags",
+          tabName: 'Tags',
           tabContent: (
-            <ActionTags/>
+            <ActionTags />
           ),
         },
         {
-          tabName: "Comments",
+          tabName: 'Comments',
           tabContent: (
             <div>
-              <ActionAddComment/>
-              <ActionComments/>
-              <ActionComments/>
-              <ActionComments/>
+              <ActionAddComment />
+              <ActionComments />
+              <ActionComments />
+              <ActionComments />
             </div>
           ),
         },
         {
-          tabName: "Status",
+          tabName: 'Status',
           tabContent: (
-            <ActionStatus/>
+            <ActionStatus />
           ),
         },
       ]}

@@ -8,34 +8,40 @@ import Reply from "@material-ui/icons/Reply";
 import Favorite from "@material-ui/icons/Favorite";
 // core components
 import Media from "components/Media/Media.js";
+import CustomInput from "components/CustomInput/CustomInput.js";
 import Button from "components/CustomButtons/Button.js";
-import GridContainer from "components/Grid/GridContainer.js";
-import GridItem from "components/Grid/GridItem.js";
-
-import StatusCardDismissed from "./StatusCards/StatusDismissed.js";
-import StatusCardNeedsCoaching from "./StatusCards/StatusNeedsCoaching.js";
-import StatusCardNeedsReview from "./StatusCards/StatusNeedsReview.js";
 
 import profile4 from "assets/img/faces/card-profile4-square.jpg";
+import profile6 from "assets/img/faces/card-profile6-square.jpg";
 
 import sectionCommentsStyle from "assets/jss/material-kit-pro-react/views/blogPostSections/sectionCommentsStyle.js";
 
 const useStyles = makeStyles(sectionCommentsStyle);
 
-export default function ActionStatus() {
+export default function ActionAddComment() {
   const classes = useStyles();
   return (
-    <GridContainer>
-      <GridItem xs={12} sm={12} md={4}>
-        <StatusCardDismissed />
-      </ GridItem>
-      <GridItem xs={12} sm={12} md={4}>
-        <StatusCardNeedsReview />
-      </ GridItem>
-      <GridItem xs={12} sm={12} md={4}>
-        <StatusCardNeedsCoaching />
-      </ GridItem>
-    </GridContainer>
+    <Media
+      avatar={profile6}
+      body={
+        <CustomInput
+          labelText=" Write some nice stuff or nothing..."
+          id="nice"
+          formControlProps={{
+            fullWidth: true,
+          }}
+          inputProps={{
+            multiline: true,
+            rows: 5,
+          }}
+        />
+      }
+      footer={
+        <Button color="danger" round className={classes.footerButtons}>
+          Post comment
+        </Button>
+      }
+    />
   );
 };
 

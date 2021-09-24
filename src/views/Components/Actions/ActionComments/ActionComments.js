@@ -1,4 +1,5 @@
 import React from "react";
+import styled from 'styled-components';
 import {Link} from "react-router-dom";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/styles";
@@ -6,6 +7,9 @@ import Tooltip from "@material-ui/core/Tooltip";
 // @material-ui/icons
 import Reply from "@material-ui/icons/Reply";
 import Favorite from "@material-ui/icons/Favorite";
+import ArrowUpward from "@material-ui/icons/ArrowUpward";
+import ArrowDownward from "@material-ui/icons/ArrowDownward";
+
 // core components
 import Media from "components/Media/Media.js";
 import CustomInput from "components/CustomInput/CustomInput.js";
@@ -16,6 +20,27 @@ import profile6 from "assets/img/faces/card-profile6-square.jpg";
 
 import sectionCommentsStyle from "assets/jss/material-kit-pro-react/views/blogPostSections/sectionCommentsStyle.js";
 
+const CommentScoreWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items; center;
+  justify-content: center;
+  font-size: .8em;
+`;
+
+const ScoreCompWrapper = styled.div`
+  :hover{
+    color: white;
+  }
+`;
+
+const CommentInfoWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  // align-items; center;
+  // justify-content: center;
+`;
+
 const useStyles = makeStyles(sectionCommentsStyle);
 
 export default function ActionComments() {
@@ -24,9 +49,24 @@ export default function ActionComments() {
     <Media
       avatar={profile4}
       title={
-        <span>
-          Tina Andrew <small>· 7 minutes ago</small>
-        </span>
+        <CommentInfoWrapper>
+          <span>
+            <CommentScoreWrapper>
+              <ScoreCompWrapper>
+                <ArrowUpward />
+              </ScoreCompWrapper>
+              <ScoreCompWrapper>
+                69
+              </ScoreCompWrapper>
+              <ScoreCompWrapper>
+              <ArrowDownward />
+              </ScoreCompWrapper>
+            </CommentScoreWrapper>
+          </span>
+          <span>
+            Tina Andrew <small>· 7 minutes ago</small>
+          </span>
+        </CommentInfoWrapper>
       }
       body={
         <p className={classes.color555}>

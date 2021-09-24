@@ -9,6 +9,7 @@ import Reply from "@material-ui/icons/Reply";
 import Favorite from "@material-ui/icons/Favorite";
 import ArrowUpward from "@material-ui/icons/ArrowUpward";
 import ArrowDownward from "@material-ui/icons/ArrowDownward";
+import DeleteForever from "@material-ui/icons/DeleteForever";
 
 // core components
 import Media from "components/Media/Media.js";
@@ -79,6 +80,21 @@ export default function ActionComments() {
       }
       footer={
         <div>
+          <Tooltip
+            id="tooltip-delete"
+            title="Action Irreversible: Admin Access Only."
+            placement="top"
+            classes={{ tooltip: classes.tooltip }}
+          >
+            <Button
+              color="danger"
+              simple
+              className={classes.footerButtons}
+            >
+              <DeleteForever className={classes.footerIcons} /> Delete Comment
+            </Button>
+          </Tooltip>
+
           <Tooltip
             id="tooltip-tina"
             title="Reply to comment"

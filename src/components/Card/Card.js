@@ -21,6 +21,7 @@ export default function Card(props) {
     [classes.cardCarousel]: carousel,
     [className]: className !== undefined,
   });
+  console.log(props);
   return (
     <div className={cardClasses} {...rest}>
       {children}

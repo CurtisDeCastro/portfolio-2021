@@ -3,6 +3,7 @@
 	"file": "material-kit-react.css",
 	"sources": [
 		"../scss/material-kit-react.scss",
+		"../scss/material-dashboard-pro-react.scss",
 		"../scss/core/_variables.scss",
 		"../scss/core/variables/_colors.scss",
 		"../scss/core/variables/_shadow.scss",

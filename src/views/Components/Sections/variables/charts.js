@@ -30,12 +30,16 @@ const dailySalesChart = {
       tension: 0,
     }),
     low: 0,
-    high: 50, // creative tim: we recommend you to set the high sa the biggest value + something for a better look
+    high: 40, // creative tim: we recommend you to set the high sa the biggest value + something for a better look
     chartPadding: {
       top: 0,
       right: 0,
       bottom: 0,
       left: 0,
+    },
+    classNames: {
+      point: "ct-point ct-white",
+      line: "ct-line ct-white",
     },
   },
   // for animation
@@ -496,16 +500,16 @@ const multipleBarsChart = {
 const colouredLinesChart = {
   data: {
     labels: [
-      "'06",
-      "'07",
-      "'08",
-      "'09",
-      "'10",
-      "'11",
-      "'12",
-      "'13",
-      "'14",
-      "'15",
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
     ],
     series: [
       [287, 385, 490, 554, 586, 698, 695, 752, 788, 846, 944],
@@ -515,10 +519,10 @@ const colouredLinesChart = {
   },
   options: {
     lineSmooth: Chartist.Interpolation.cardinal({
-      tension: 10,
+      tension: 30,
     }),
     axisY: {
-      showGrid: true,
+      showGrid: false,
       offset: 40,
     },
     axisX: {
@@ -574,11 +578,81 @@ const pieChart = {
   },
 };
 
+// Our labels and three data series
+const chartTest = {
+  data: {
+    labels: ['0', '2', '4', '6', '8', '10','12','14','16','18','20'],
+    series: [
+      [5, 4, 3, 7, 5, 10],
+      [3, 2, 9, 5, 4, 6],
+      [2, 1, 0, 0, 0, 0]
+    ],
+  },
+  options: {
+    // Don't draw the line chart points
+    showPoint: false,
+    // Disable line smoothing
+    lineSmooth: false,
+    // X-Axis specific configuration
+    axisX: {
+      // We can disable the grid for this axis
+      showGrid: true,
+      // and also don't show the label
+      showLabel: true,
+    },
+    // Y-Axis specific configuration
+    axisY: {
+      // Lets offset the chart a bit from the labels
+      offset: 60,
+      // The label interpolation function enables you to modify the values
+      // used for the labels on each axis. Here we are converting the
+      // values into million pound.
+      labelInterpolationFnc: function(value) {
+        return value + 'mph';
+      }
+    }
+  },
+  // animation: {
+  //   draw: function (data) {
+  //     if (data.type === "line" || data.type === "area") {
+  //       data.element.animate({
+  //         d: {
+  //           begin: 600,
+  //           dur: 700,
+  //           from: data.path
+  //             .clone()
+  //             .scale(1, 0)
+  //             .translate(0, data.chartRect.height())
+  //             .stringify(),
+  //           to: data.path.clone().stringify(),
+  //           easing: Chartist.Svg.Easing.easeOutQuint,
+  //         },
+  //       });
+  //     } else if (data.type === "point") {
+  //       data.element.animate({
+  //         opacity: {
+  //           begin: (data.index + 1) * delays,
+  //           dur: durations,
+  //           from: 0,
+  //           to: 1,
+  //           easing: "ease",
+  //         },
+  //       });
+  //     }
+  //   },
+  // },
+};
+
+
+// All you need to do is pass your configuration as third parameter to the chart function
+// new Chartist.Line('.ct-chart', data, options);
+
 module.exports = {
   // Charts used in Dahsboard view
   dailySalesChart,
   emailsSubscriptionChart,
   completedTasksChart,
+  chartTest,
   // Charts used in Charts view
   roundedLineChart,
   straightLinesChart,

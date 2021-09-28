@@ -23,6 +23,8 @@ import XSectionVideoPlayer from './Sections/XSectionVideoPlayer';
 import XSectionActions from './Sections/XSectionActions';
 import CurtisHeaderLinks from '../../components/Header/CurtisHeaderLinks';
 
+import ToolAccelerometer from './Tools/ToolAccelerometer/ToolAccelerometer';
+
 const useStyles = makeStyles(styles);
 
 const Spacer = styled.div`
@@ -51,6 +53,7 @@ export default function Components(props) {
         {...rest}
       />
       <UnderHeaderSpacer />
+      {/* <ToolAccelerometer/> */}
 
       <div className={classes.container}>
 

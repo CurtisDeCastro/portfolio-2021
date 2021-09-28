@@ -52,6 +52,18 @@ const ToolBarContent = styled.div`
   // justify-content: center;
 `;
 
+const ChartWrapper = styled.div`
+display: block;
+display: -webkit-box;
+display: -moz-box;
+display: -ms-flexbox;
+display: -webkit-flex;
+display: flex;
+stroke: rgba(255, 255, 255, 0.2);
+stroke-width: 1px;
+stroke-dasharray: 2px;
+`;
+
 const useStyles = makeStyles(styles);
 
 export default function ToolAccelerometer() {
@@ -65,13 +77,15 @@ export default function ToolAccelerometer() {
       {/* <ToolBarContent> */}
         <Card chart className={classes.cardHover}>
           <CardHeader color="danger" className={classes.cardHeaderHover}>
-            <ChartistGraph
-              className={classes['ct-line']}
-              data={dailySalesChart.data}
-              type="Line"
-              options={dailySalesChart.options}
-              listener={dailySalesChart.animation}
-            />
+            <ChartWrapper>
+              <ChartistGraph
+                className={classes['ct-line']}
+                data={dailySalesChart.data}
+                type="Line"
+                options={dailySalesChart.options}
+                listener={dailySalesChart.animation}
+              />
+            </ChartWrapper>
           </CardHeader>
           <CardBody>
             <div className={classes.cardHoverUnder}>
